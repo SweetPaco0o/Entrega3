@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70147b0500cc3142a0254f6e360a78a, type: 3}
+  m_Name: Introduction
+  m_EditorClassIdentifier: 
+  Name: Sra. Maria jijija
+  StartNode: {fileID: 11400000, guid: cda09e46a79083d4a93434dfef07a845, type: 2}
