@@ -16,7 +16,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DialogueManager.Instance.HideDialogue();
+            DialogueManager.Instance.EndDialogue();
         }
     }
 }

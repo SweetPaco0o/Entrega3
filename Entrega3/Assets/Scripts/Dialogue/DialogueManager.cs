@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI SpeechText;
     public TextMeshProUGUI[] OptionsText;
-    // Start is called before the first frame update
+
+    public CinemachineVirtualCamera mainCamera;
+    public CinemachineVirtualCamera dialogueCamera;
+
     void Awake()
     {
         if (Instance == null)
@@ -40,6 +44,17 @@ public class DialogueManager : MonoBehaviour
         ShowDialogue();
     }
 
+    public void EndDialogue()
+    {
+        HideDialogue();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        // Cambiar de vuelta a la cámara principal
+        mainCamera.Priority = 10;
+        dialogueCamera.Priority = 5;
+    }
+
     private void SetNode(DialogueNode currentNode)
     {
         SpeechText.text = currentNode.Text;
@@ -60,6 +75,13 @@ public class DialogueManager : MonoBehaviour
     private void ShowDialogue()
     {
         dialogueAnimator.SetBool("Show", true);
+        dialogueAnimator.SetBool("Show", true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        // Cambiar a la cámara de diálogo
+        mainCamera.Priority = 5;
+        dialogueCamera.Priority = 10;
     }
     public void HideDialogue()
     {
