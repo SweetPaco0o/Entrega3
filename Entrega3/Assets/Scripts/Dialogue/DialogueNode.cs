@@ -6,6 +6,8 @@ public class DialogueNode : ScriptableObject
 {
     public string Text;
     public List<DialogueOption> Options;
+    public AudioClip NodeAudio;
+    public bool IsDancing;
 }
 
 [System.Serializable]
