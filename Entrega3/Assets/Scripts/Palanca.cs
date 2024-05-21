@@ -1,17 +1,41 @@
 using UnityEngine;
+using Cinemachine;
+using System.Collections;
+using System;
 
 public class LeverController : MonoBehaviour
 {
-    public Animator animator;
+    public Animator Palanca; 
+    public Animator Barrotes;
+    public CinemachineVirtualCamera barrotesCam;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        Palanca = GetComponent<Animator>();
     }
 
-    void OnMouseDown()
+    void OnTriggerEnter(Collider other)
     {
-        bool isActivated = animator.GetBool("isActivated");
-        animator.SetBool("isActivated", !isActivated);
+        if (other.CompareTag("Player"))
+        {
+            Palanca.SetBool("ActivarPalanca", true);
+
+            StartCoroutine(ActivateBarrotesAnimationWithDelay(2f));
+            StartCoroutine(ActivateCameraWithDelay(0.8f));
+        }
+    }
+    private IEnumerator ActivateBarrotesAnimationWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Barrotes.SetBool("UnlockBarrotes", true);
+    }
+
+    private IEnumerator ActivateCameraWithDelay(float delayCamera)
+    {
+        yield return new WaitForSeconds(delayCamera);
+        barrotesCam.Priority = 50;
+
+        yield return new WaitForSeconds(2f); 
+        barrotesCam.Priority = 1;
     }
 }
