@@ -18,6 +18,4 @@ public class VolumeCode : MonoBehaviour
         PlayerPrefs.SetFloat("audioVolume", slider.value);
         AudioListener.volume = slider.value;
     }
-
-
 }
