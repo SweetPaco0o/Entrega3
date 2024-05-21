@@ -1,30 +1,14 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MenuManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Awake()
-    {
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}*/
-
-/*using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject menu;
-    public GameObject gameUI; // Opcional, si tienes una UI de juego que quieres desactivar al pausar
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject mainPanel;
+
+    //public GameObject gameUI; // Opcional, si tienes una UI de juego que quieres desactivar al pausar
 
     private bool isPaused = false;
 
@@ -32,8 +16,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-
             if (isPaused)
             {
                 Resume();
@@ -45,28 +27,41 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void GoToMenu()
+    {
+        optionsPanel.SetActive(false);
+        mainPanel.SetActive(true);
+    }
+
+    public void GoToOptions()
+    {
+        optionsPanel.SetActive(true);
+        mainPanel.SetActive(false);
+    }
+
     public void Resume()
     {
-        menu.SetActive(false);
-        if (gameUI != null)
-        {
-            gameUI.SetActive(true);
-        }
-        Time.timeScale = 1f; 
+        mainPanel.SetActive(false);
+        //if (gameUI != null)
+        //{
+        //    gameUI.SetActive(true);
+        //}
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
         isPaused = false;
     }
 
     void Pause()
     {
-        
-        menu.SetActive(true);
-        if (gameUI != null)
-        {
-            gameUI.SetActive(false);
-        }
+        mainPanel.SetActive(true);
+        //if (gameUI != null)
+        //{
+        //    gameUI.SetActive(false);
+        //}
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
         isPaused = true;
     }
 
@@ -74,4 +69,4 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-}*/
+}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Portal1Tp : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Portal1Tp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("tP");
-            other.transform.position = teleportLocation.position;
+            SceneManager.LoadScene("Candy land");
         }
     }
 }
