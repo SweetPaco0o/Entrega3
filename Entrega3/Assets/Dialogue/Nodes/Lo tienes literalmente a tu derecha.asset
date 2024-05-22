@@ -15,11 +15,9 @@ MonoBehaviour:
   Text: Lo tienes literalmente a tu derecha
   Options:
   - Text: "Ya lo hab\xEDa visto"
-    NextNode: {fileID: 0}
+    NextNode: {fileID: 11400000, guid: fca21360a1ef57a4b9d0b051a84f6efd, type: 2}
   - Text: "\xBFC\xF3mo lo abro?"
     NextNode: {fileID: 11400000, guid: b740ccce288f28e459881fa8d8bbc954, type: 2}
-  - Text: Que te den
-    NextNode: {fileID: 0}
-  - Text: Grax
-    NextNode: {fileID: 0}
   NodeAudio: {fileID: 0}
+  IsDancing: 0
+  IsSpinning: 0

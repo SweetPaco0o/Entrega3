@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a13d89ea9cc2494f94b0cb9c5065f54, type: 3}
+  m_Name: Palanca
+  m_EditorClassIdentifier: 
+  Text: "Est\xE1 tras una roca al incio del mapa. Suerte."
+  Options: []
+  NodeAudio: {fileID: 0}
+  IsDancing: 0
+  IsSpinning: 0
+  IsOK: 0
+  IsPointing: 1

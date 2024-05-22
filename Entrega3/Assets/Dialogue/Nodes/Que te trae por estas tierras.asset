@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: "\xBFQu\xE9 te trae por estas tierras, eh?"
   Options:
-  - Text: Las mamalungas
-    NextNode: {fileID: 0}
+  - Text: Saquenme de Vallekas
+    NextNode: {fileID: 11400000, guid: 18df67831580045468ce3555334618ff, type: 2}
   - Text: El cofre secreto
     NextNode: {fileID: 11400000, guid: 27a3314de51ef2243a09b1d884bfd728, type: 2}
-  - Text: Me siento solo
-    NextNode: {fileID: 0}
-  - Text: Saquenme de vallecas
-    NextNode: {fileID: 0}
+  NodeAudio: {fileID: 0}
+  IsDancing: 0
+  IsSpinning: 0
