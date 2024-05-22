@@ -15,12 +15,10 @@ MonoBehaviour:
   Text: Debes buscar una palanca y activarla
   Options:
   - Text: No la encuentro
-    NextNode: {fileID: 0}
-  - Text: Gracias :D
-    NextNode: {fileID: 0}
+    NextNode: {fileID: 11400000, guid: 7e87df40dafc9dd41bc70cec3a4cfeb9, type: 2}
   - Text: Paso de movidas
     NextNode: {fileID: 11400000, guid: 90aad2438194ea842950122646064e4b, type: 2}
-  - Text: Perfecto, voy a buscarla
-    NextNode: {fileID: 0}
   NodeAudio: {fileID: 0}
-  NodeAnimation: {fileID: 0}
+  IsDancing: 0
+  IsSpinning: 0
+  IsOK: 0
