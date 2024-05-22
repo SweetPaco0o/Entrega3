@@ -8,6 +8,9 @@ public class DialogueNode : ScriptableObject
     public List<DialogueOption> Options;
     public AudioClip NodeAudio;
     public bool IsDancing;
+    public bool IsSpinning;
+    public bool IsOK;
+    public bool IsPointing;
 }
 
 [System.Serializable]

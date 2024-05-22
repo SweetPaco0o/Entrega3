@@ -53,12 +53,13 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        // Cambiar de vuelta a la cámara principal
         mainCamera.Priority = 10;
         dialogueCamera.Priority = 5;
 
-        // Resetear el estado de la animación
         characterAnimator.SetBool("isDancing", false);
+        characterAnimator.SetBool("isSpinning", false);
+        characterAnimator.SetBool("isPointing", false);
+        characterAnimator.SetBool("OK", false);
     }
 
     private void SetNode(DialogueNode currentNode)
@@ -69,15 +70,24 @@ public class DialogueManager : MonoBehaviour
 
         for (int i = 0; i < OptionsText.Length; i++)
         {
+            if (OptionsText[i] == null)
+            {
+                continue;
+            }
+
             if (i < currentNode.Options.Count)
             {
                 OptionsText[i].transform.parent.gameObject.SetActive(true);
                 OptionsText[i].text = currentNode.Options[i].Text;
 
-                // Agregar un listener para cada opción
-                int optionIndex = i; // Capturar el índice en una variable local para evitar problemas de cierre
-                OptionsText[i].transform.parent.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
-                OptionsText[i].transform.parent.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => OnOptionSelected(optionIndex));
+                int optionIndex = i;
+                var button = OptionsText[i].transform.parent.GetComponent<UnityEngine.UI.Button>();
+                if (button == null)
+                {
+                    continue;
+                }
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() => OnOptionSelected(optionIndex));
             }
             else
             {
@@ -93,7 +103,6 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        // Cambiar a la cámara de diálogo
         mainCamera.Priority = 5;
         dialogueCamera.Priority = 10;
     }
@@ -132,8 +141,22 @@ public class DialogueManager : MonoBehaviour
     {
         if (characterAnimator != null)
         {
-            // Establecer el booleano isDancing en el Animator
             characterAnimator.SetBool("isDancing", node.IsDancing);
+            characterAnimator.SetBool("isSpinning", node.IsSpinning);
+            characterAnimator.SetBool("isPointing", node.IsPointing);
+            characterAnimator.SetBool("OK", node.IsOK);
+
+            if (node.IsSpinning)
+            {
+                StartCoroutine(ResetSpinningAnimation());
+            }
         }
+    }
+
+    private IEnumerator ResetSpinningAnimation()
+    {
+        float spinningDuration = 2.0f;
+        yield return new WaitForSeconds(spinningDuration);
+        characterAnimator.SetBool("isSpinning", false);
     }
 }

@@ -13,14 +13,7 @@ MonoBehaviour:
   m_Name: Auuuuuuuuuuuuuuuuu
   m_EditorClassIdentifier: 
   Text: Auuuuuuuuuuuuuuuuu
-  Options:
-  - Text: Auuuuuuuuuuuuuuuuu
-    NextNode: {fileID: 0}
-  - Text: Auuuuuuuuuuuuuuuuu
-    NextNode: {fileID: 0}
-  - Text: Auuuuuuuuuuuuuuuuu
-    NextNode: {fileID: 0}
-  - Text: Auuuuuuuuuuuuuuuuu
-    NextNode: {fileID: 0}
+  Options: []
   NodeAudio: {fileID: 8300000, guid: eb8d3dd2d5529034da93803fe5a60bce, type: 3}
   IsDancing: 1
+  IsSpinning: 0
