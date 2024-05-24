@@ -27,7 +27,7 @@ public class ParticleControllerFirelights : MonoBehaviour
     private void ChangeStrength()
     {
         var emission = particleSystem.emission;
-        emission.rateOverTime = (Mathf.Sin(Time.time) * 0.5f + 0.5f) * 50;
+        emission.rateOverTime = (Mathf.Sin(Time.time) * 0.5f + 0f) * 100;
 
         var burst = emission.GetBurst(0);
         burst.count = 50;
