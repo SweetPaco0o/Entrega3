@@ -1,17 +1,22 @@
 using UnityEngine;
 using Cinemachine;
 using System.Collections;
-using System;
 
 public class LeverController : MonoBehaviour
 {
     public Animator Palanca; 
     public Animator Barrotes;
     public CinemachineVirtualCamera barrotesCam;
+    public AudioSource audioSource;
+    public AudioClip barrotesSound; 
 
     void Start()
     {
         Palanca = GetComponent<Animator>();
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -24,10 +29,12 @@ public class LeverController : MonoBehaviour
             StartCoroutine(ActivateCameraWithDelay(0.8f));
         }
     }
+
     private IEnumerator ActivateBarrotesAnimationWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         Barrotes.SetBool("UnlockBarrotes", true);
+        PlayBarrotesSound();
     }
 
     private IEnumerator ActivateCameraWithDelay(float delayCamera)
@@ -37,5 +44,18 @@ public class LeverController : MonoBehaviour
 
         yield return new WaitForSeconds(2f); 
         barrotesCam.Priority = 1;
+    }
+
+    private void PlayBarrotesSound()
+    {
+        if (audioSource != null && barrotesSound != null)
+        {
+            audioSource.clip = barrotesSound;
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or BarrotesSound is not assigned.");
+        }
     }
 }
